@@ -8,8 +8,8 @@ public class Healthbar : MonoBehaviour
     [SerializeField] Image imageFill;
     [SerializeField] Vector3 offset;
 
-    float hp;
-    float maxHp;
+    private float hp;
+    private float maxHp;
 
     private Transform target;
 

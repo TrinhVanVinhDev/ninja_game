@@ -59,18 +59,15 @@ public class PlayerController : Character
             {
                 Jump();
             }
-
-            if (Input.GetKeyDown(KeyCode.Z))
+            else if (Input.GetKeyDown(KeyCode.Z))
             {
                 Attack();
             }
-
-            if (Input.GetKeyDown(KeyCode.C))
+            else if (Input.GetKeyDown(KeyCode.C))
             {
                 Throw();
             }
-
-            if (Mathf.Abs(horizontalKey) > 0.1f)
+            else if (Mathf.Abs(horizontalKey) > 0.1f)
             {
                 Run(horizontalKey);
             }
@@ -89,15 +86,15 @@ public class PlayerController : Character
         if (!isGrounded && rb.velocity.y < 0)
         {
             ChangeAnim("is_jumpOut");
+            if (Mathf.Abs(horizontalKey) > 0.1f)
+            {
+                Moving(horizontalKey);
+            }
+            else if (Mathf.Abs(horizontal) > 0.1f)
+            {
+                Moving(horizontal);
+            }
             isJumping = false;
-        }
-
-        if (Mathf.Abs(horizontalKey) > 0.1f)
-        {
-            Run(horizontalKey);
-        } else if (Mathf.Abs(horizontal) > 0.1f)
-        {
-            Run(horizontal);
         }
     }
 
@@ -172,6 +169,11 @@ public class PlayerController : Character
     private void Run(float horizontalMoving)
     {
         ChangeAnim("is_run");
+        Moving(horizontalMoving);
+    }
+
+    private void Moving(float horizontalMoving)
+    {
         rb.velocity = new Vector2(horizontalMoving * Time.fixedDeltaTime * speed, rb.velocity.y);
         transform.rotation = Quaternion.Euler(new Vector3(0, horizontalMoving > 0 ? 0 : 180, 0));
     }
