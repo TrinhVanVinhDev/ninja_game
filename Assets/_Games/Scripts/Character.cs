@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
 
     private int coinStarts;
 
-    protected float hp = 100;
+    protected float hp;
 
     private string currentAnimName;
 
@@ -25,8 +25,7 @@ public class Character : MonoBehaviour
 
     public virtual void OnInit()
     {
-        hp = 100;
-        healthBar.OnInit(100, transform);
+        healthBar.OnInit(hp, transform);
         coinStarts = PlayerPrefs.GetInt("coin");
         UIManager.instance.SetPoint(coinStarts);
     }

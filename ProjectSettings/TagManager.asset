@@ -8,6 +8,10 @@ TagManager:
   - DeathZone
   - EnemyWall
   - Enemy
+  - Rope
+  - PortalTele
+  - Eternal
+  - Healer
   layers:
   - Default
   - TransparentFX
@@ -17,7 +21,7 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - 
+  - wall
   - 
   - 
   - 

@@ -16,7 +16,12 @@ public class Healthbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        imageFill.fillAmount = Mathf.Lerp(imageFill.fillAmount, hp / maxHp, Time.deltaTime * 5f);
+        OnDrawHealBar(this.hp, this.maxHp);
+    }
+
+    internal void OnDrawHealBar(float hp, float maxHp)
+    {
+        imageFill.fillAmount = Mathf.Lerp(imageFill.fillAmount, hp/maxHp, Time.deltaTime * 5f);
         transform.position = target.position + offset;
     }
 

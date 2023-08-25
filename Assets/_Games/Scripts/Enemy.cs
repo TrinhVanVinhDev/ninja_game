@@ -27,6 +27,7 @@ public class Enemy : Character
 
     public override void OnInit()
     {
+        base.hp = 100;
         base.OnInit();
         ChangeState(new IdleState());
         DeActiveAttackArena();
